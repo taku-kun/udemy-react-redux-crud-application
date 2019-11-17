@@ -1,5 +1,6 @@
 // import React, {Component} from 'react';
 import React  from 'react';
+import PropTypes from 'prop-types';
 
 
 // Parent component
@@ -28,6 +29,11 @@ const User = (props) => (
     I am {props.name}. My job is SE. My age is {props.age}
   </div>
 );
+
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
+};
 
 User.defaultProps = {
   age: 1
