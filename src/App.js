@@ -1,32 +1,38 @@
 // import React, {Component} from 'react';
 import React  from 'react';
 
-const Bar =()=> (<label htmlFor="bar">bar</label>);
 
+// Parent component
 const App = () => {
+
+  const profiles = [
+    {name: 'MI', age: 27},
+    {name: 'HAMA', age:5 },
+    {name: 'TAKU'}
+  ];
+
   return (
     <React.Fragment>
-      <Bar />
-      <input type="text" onChange={()=>console.log('Say Hello')} />
+      {profiles.map((prof, index) => (
+        <User name={prof.name} age={prof.age} key={index}/>
+      ) )}
     </React.Fragment>
+
   )
+
 };
 
+// Child Component data import via props
+const User = (props) => (
+  <div>
+    I am {props.name}. My job is SE. My age is {props.age}
+  </div>
+);
 
-// class App extends Component {
-//   render () {
+User.defaultProps = {
+  age: 1
+};
 
-//     const greeting = 'Hi';
-//     return (
-//       <React.Fragment>
-//         <Bar />
-//         <input type="text" onChange={()=>console.log('Hello Mi')}/>
-//         <p>{greeting}</p>
-//       </React.Fragment>
-
-//     )
-//   }
-// };
 
 export default App;
 
