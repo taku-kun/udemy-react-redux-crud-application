@@ -1,5 +1,5 @@
-// import React, {Component} from 'react';
-import React  from 'react';
+import React, {Component} from 'react';
+// import React  from 'react';
 
 
 // Parent component
@@ -23,6 +23,7 @@ const App = () => {
 };
 
 // Child Component data import via props
+
 const User = (props) => (
   <div>
     I am {props.name}. My job is SE. My age is {props.age}
