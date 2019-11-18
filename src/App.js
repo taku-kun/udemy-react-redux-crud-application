@@ -1,43 +1,36 @@
-// import React, {Component} from 'react';
-import React  from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+// import React  from 'react';
 
 
 // Parent component
-const App = () => {
+const App = () => (<Counter></Counter>);
 
-  const profiles = [
-    {name: 'MI', age: 27},
-    {name: 'HAMA', age:5 },
-    {name: 'TAKU'}
-  ];
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
 
-  return (
-    <React.Fragment>
-      {profiles.map((prof, index) => (
-        <User name={prof.name} age={prof.age} key={index}/>
-      ) )}
-    </React.Fragment>
+  handlePlusButton = ()=> {this.setState({count: this.state.count + 1}) };
 
-  )
+  handleMinusButton = ()=> { this.setState({count: this.state.count - 1}) };
 
-};
+  // setState の callback で render が実行される
+  render() {
+    console.log("Render!");
+    return (
+      <React.Fragment>
+        <div>counter: {this.state.count}</div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </React.Fragment>
+    );
+  }
+}
 
-// Child Component data import via props
-const User = (props) => (
-  <div>
-    I am {props.name}. My job is SE. My age is {props.age}
-  </div>
-);
 
-User.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number.isRequired
-};
-
-User.defaultProps = {
-  age: 1
-};
 
 
 export default App;
