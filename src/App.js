@@ -31,7 +31,7 @@ const User = (props) => (
 );
 
 User.defaultProps = {
-  age: 1
+  age: 2
 };
 
 
