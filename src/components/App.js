@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 // import React  from 'react';
-
 import { increment, decrement } from '../actions';
 
-
 // Parent component
-
-
 class App extends Component {
 
 
